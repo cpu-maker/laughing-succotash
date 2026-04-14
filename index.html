@@ -7,22 +7,34 @@
 </head>
 <body>
 
-  <div id="topbar">
-    <div id="logo">MyOS</div>
-    <div id="stats">
-      <span id="cpu">CPU: --%</span>
-      <span id="ram">RAM: --%</span>
-      <span id="time"></span>
-    </div>
+<div id="desktop">
+
+  <!-- ICON -->
+  <div class="icon" onclick="openApp('terminal')">
+    🖥️<br>Terminal
   </div>
 
-  <div id="desktop">
+  <!-- WINDOW -->
+  <div id="terminalWindow" class="window hidden">
+    <div class="titlebar" onmousedown="dragStart(event, this.parentElement)">
+      Terminal
+      <span class="close" onclick="closeApp('terminal')">✕</span>
+    </div>
+
     <div id="terminal">
       <div id="output"></div>
-      <input id="input" placeholder="type a command...">
+      <input id="input" autocomplete="off">
     </div>
   </div>
 
-  <script src="script.js"></script>
+</div>
+
+<!-- TASKBAR -->
+<div id="taskbar">
+  <div id="start">MyOS</div>
+  <div id="taskTime"></div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
